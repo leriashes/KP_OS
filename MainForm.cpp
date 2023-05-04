@@ -24,3 +24,7 @@ System::Void MainForm::button_AddProcess_Click(System::Object^ sender, System::E
 		OSystem::OS()->addProcess(new Process());
 	}
 }
+
+System::Void MainForm::flowLayoutPanel1_Click(System::Object^ sender, System::EventArgs^ e) {
+	flowLayoutPanel1->BackColor = Color::Aquamarine;
+}

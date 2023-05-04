@@ -87,6 +87,7 @@ namespace KPOS {
 			this->button_AddProcess = (gcnew System::Windows::Forms::Button());
 			this->button_DelProcess = (gcnew System::Windows::Forms::Button());
 			this->panel_Main = (gcnew System::Windows::Forms::Panel());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->flowLayoutPanel8 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->flowLayoutPanel7 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->flowLayoutPanel6 = (gcnew System::Windows::Forms::FlowLayoutPanel());
@@ -95,7 +96,6 @@ namespace KPOS {
 			this->flowLayoutPanel3 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->flowLayoutPanel2 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
-			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->panel_Main->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -135,6 +135,15 @@ namespace KPOS {
 			this->panel_Main->Name = L"panel_Main";
 			this->panel_Main->Size = System::Drawing::Size(986, 524);
 			this->panel_Main->TabIndex = 2;
+			// 
+			// panel1
+			// 
+			this->panel1->BackColor = System::Drawing::Color::AliceBlue;
+			this->panel1->Location = System::Drawing::Point(3, 363);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(980, 158);
+			this->panel1->TabIndex = 8;
+			this->panel1->Visible = false;
 			// 
 			// flowLayoutPanel8
 			// 
@@ -207,15 +216,7 @@ namespace KPOS {
 			this->flowLayoutPanel1->Size = System::Drawing::Size(980, 39);
 			this->flowLayoutPanel1->TabIndex = 0;
 			this->flowLayoutPanel1->Visible = false;
-			// 
-			// panel1
-			// 
-			this->panel1->BackColor = System::Drawing::Color::AliceBlue;
-			this->panel1->Location = System::Drawing::Point(3, 363);
-			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(980, 158);
-			this->panel1->TabIndex = 8;
-			this->panel1->Visible = false;
+			this->flowLayoutPanel1->Click += gcnew System::EventHandler(this, &MainForm::flowLayoutPanel1_Click);
 			// 
 			// MainForm
 			// 
@@ -234,5 +235,6 @@ namespace KPOS {
 		}
 #pragma endregion
 private: System::Void button_AddProcess_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void flowLayoutPanel1_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }
