@@ -153,6 +153,7 @@ namespace KPOS {
 			this->flowLayoutPanel8->Size = System::Drawing::Size(980, 39);
 			this->flowLayoutPanel8->TabIndex = 7;
 			this->flowLayoutPanel8->Visible = false;
+			this->flowLayoutPanel8->Click += gcnew System::EventHandler(this, &MainForm::flowLayoutPanel8_Click);
 			// 
 			// flowLayoutPanel7
 			// 
@@ -162,6 +163,7 @@ namespace KPOS {
 			this->flowLayoutPanel7->Size = System::Drawing::Size(980, 39);
 			this->flowLayoutPanel7->TabIndex = 6;
 			this->flowLayoutPanel7->Visible = false;
+			this->flowLayoutPanel7->Click += gcnew System::EventHandler(this, &MainForm::flowLayoutPanel7_Click);
 			// 
 			// flowLayoutPanel6
 			// 
@@ -171,6 +173,7 @@ namespace KPOS {
 			this->flowLayoutPanel6->Size = System::Drawing::Size(980, 39);
 			this->flowLayoutPanel6->TabIndex = 5;
 			this->flowLayoutPanel6->Visible = false;
+			this->flowLayoutPanel6->Click += gcnew System::EventHandler(this, &MainForm::flowLayoutPanel6_Click);
 			// 
 			// flowLayoutPanel5
 			// 
@@ -180,6 +183,7 @@ namespace KPOS {
 			this->flowLayoutPanel5->Size = System::Drawing::Size(980, 39);
 			this->flowLayoutPanel5->TabIndex = 4;
 			this->flowLayoutPanel5->Visible = false;
+			this->flowLayoutPanel5->Click += gcnew System::EventHandler(this, &MainForm::flowLayoutPanel5_Click);
 			// 
 			// flowLayoutPanel4
 			// 
@@ -189,6 +193,7 @@ namespace KPOS {
 			this->flowLayoutPanel4->Size = System::Drawing::Size(980, 39);
 			this->flowLayoutPanel4->TabIndex = 3;
 			this->flowLayoutPanel4->Visible = false;
+			this->flowLayoutPanel4->Click += gcnew System::EventHandler(this, &MainForm::flowLayoutPanel4_Click);
 			// 
 			// flowLayoutPanel3
 			// 
@@ -198,6 +203,7 @@ namespace KPOS {
 			this->flowLayoutPanel3->Size = System::Drawing::Size(980, 39);
 			this->flowLayoutPanel3->TabIndex = 2;
 			this->flowLayoutPanel3->Visible = false;
+			this->flowLayoutPanel3->Click += gcnew System::EventHandler(this, &MainForm::flowLayoutPanel3_Click);
 			// 
 			// flowLayoutPanel2
 			// 
@@ -207,6 +213,7 @@ namespace KPOS {
 			this->flowLayoutPanel2->Size = System::Drawing::Size(980, 39);
 			this->flowLayoutPanel2->TabIndex = 1;
 			this->flowLayoutPanel2->Visible = false;
+			this->flowLayoutPanel2->Click += gcnew System::EventHandler(this, &MainForm::flowLayoutPanel2_Click);
 			// 
 			// flowLayoutPanel1
 			// 
@@ -234,7 +241,18 @@ namespace KPOS {
 
 		}
 #pragma endregion
+private: 
+	void selectProcess(int index);
+	void unselectProcess();
+
 private: System::Void button_AddProcess_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void flowLayoutPanel1_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void flowLayoutPanel2_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void flowLayoutPanel3_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void flowLayoutPanel4_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void flowLayoutPanel5_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void flowLayoutPanel6_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void flowLayoutPanel7_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void flowLayoutPanel8_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }
