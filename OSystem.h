@@ -18,7 +18,7 @@ public:
 	static OSystem* OS();
 	int getProcessesNumber();
 	void addProcess(Process* proc);
-
+	void delProcess(int index);
 	~OSystem();
 };
 

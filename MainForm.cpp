@@ -15,8 +15,10 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
 void KPOS::MainForm::selectProcess(int index)
 {
+	selected_process = index;
 	flowLayoutPanels[index]->BackColor = Color::Aquamarine;
 	button_DelProcess->Enabled = true;
+	panel1->Visible = true;
 }
 
 void KPOS::MainForm::unselectProcess()
@@ -30,17 +32,17 @@ void KPOS::MainForm::unselectProcess()
 	}
 
 	button_DelProcess->Enabled = false;
+	panel1->Visible = false;
+	selected_process = -1;
 }
 
 System::Void KPOS::MainForm::button_AddProcess_Click(System::Object^ sender, System::EventArgs^ e) {
+	flowLayoutPanels[OSystem::OS()->getProcessesNumber()]->Visible = true;
+	OSystem::OS()->addProcess(new Process());
+
 	if (OSystem::OS()->getProcessesNumber() == 8)
 	{
 		button_AddProcess->Enabled = false;
-	}
-	else
-	{
-		flowLayoutPanels[OSystem::OS()->getProcessesNumber()]->Visible = true;
-		OSystem::OS()->addProcess(new Process());
 	}
 }
 
@@ -90,4 +92,46 @@ System::Void KPOS::MainForm::flowLayoutPanel8_Click(System::Object^ sender, Syst
 {
 	unselectProcess();
 	selectProcess(7);
+}
+
+System::Void KPOS::MainForm::button_DelProcess_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	OSystem::OS()->delProcess(selected_process);
+
+	if (selected_process < 8)
+	{
+		//ÄÎËÆÍÎ ÏÅÐÅÄÂÈÃÀÒÜÑß ÑÎÄÅÐÆÈÌÎÅ
+		flowLayoutPanels[selected_process]->BackColor = flowLayoutPanels[selected_process + 1]->BackColor;
+	}
+	
+	unselectProcess();
+	flowLayoutPanels[OSystem::OS()->getProcessesNumber()]->Visible = false;
+	button_AddProcess->Enabled = true;
+}
+
+System::Void KPOS::MainForm::MainForm_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
+{
+	unselectProcess();
+}
+
+System::Void KPOS::MainForm::panel_Main_MouseClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
+{
+	unselectProcess();
+}
+
+System::Void KPOS::MainForm::button_addPipe_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	groupBox_add->Visible = true;
+	textBox1->Text = L"";
+	radioButton1->Select();
+}
+
+System::Void KPOS::MainForm::panel1_VisibleChanged(System::Object^ sender, System::EventArgs^ e)
+{
+	groupBox_add->Visible = false;
+}
+
+System::Void KPOS::MainForm::textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e)
+{
+	button_addAction->Enabled = (textBox1->Text != L"");
 }
