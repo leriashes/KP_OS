@@ -2,6 +2,7 @@
 #include <cliext/vector>
 #include "OSystem.h"
 #include "Process.h"
+#include "ModelForm.h"
 
 namespace KPOS {
 
@@ -5812,6 +5813,7 @@ private: System::Windows::Forms::Button^ button_start;
 			this->button_start->TabIndex = 3;
 			this->button_start->Text = L" Запуск модели";
 			this->button_start->UseVisualStyleBackColor = true;
+			this->button_start->Click += gcnew System::EventHandler(this, &MainForm::button_start_Click);
 			// 
 			// MainForm
 			// 
@@ -6251,5 +6253,6 @@ private: System::Void button_readAction_Click(System::Object^ sender, System::Ev
 private: System::Void button_write_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void maskedTextBox4_TextChanged(System::Object^ sender, System::EventArgs^ e);
 private: System::Void button_writeAction_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void button_start_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

@@ -257,3 +257,9 @@ System::Void KPOS::MainForm::button_writeAction_Click(System::Object^ sender, Sy
 		panel1->Visible = false;
 }
 
+System::Void KPOS::MainForm::button_start_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	ModelForm^ p = gcnew ModelForm();
+	p->ShowDialog();
+}
+
