@@ -37,7 +37,12 @@ void KPOS::MainForm::unselectProcess()
 }
 
 System::Void KPOS::MainForm::button_AddProcess_Click(System::Object^ sender, System::EventArgs^ e) {
-	flowLayoutPanels[OSystem::OS()->getProcessesNumber()]->Visible = true;
+	int n = OSystem::OS()->getProcessesNumber();
+	for (int i = 0; i < 23; i++)
+	{
+		panels[n * 23 + i]->Visible = false;
+	}
+	flowLayoutPanels[n]->Visible = true;
 	OSystem::OS()->addProcess(new Process());
 
 	if (OSystem::OS()->getProcessesNumber() == 8)
@@ -122,7 +127,7 @@ System::Void KPOS::MainForm::panel_Main_MouseClick(System::Object^ sender, Syste
 System::Void KPOS::MainForm::button_addPipe_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	groupBox_add->Visible = true;
-	textBox1->Text = L"";
+	maskedTextBox1->Text = L"";
 	radioButton1->Select();
 }
 
@@ -131,7 +136,8 @@ System::Void KPOS::MainForm::panel1_VisibleChanged(System::Object^ sender, Syste
 	groupBox_add->Visible = false;
 }
 
-System::Void KPOS::MainForm::textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e)
+System::Void KPOS::MainForm::maskedTextBox1_TextChanged(System::Object^ sender, System::EventArgs^ e)
 {
-	button_addAction->Enabled = (textBox1->Text != L"");
+	button_addAction->Enabled = (maskedTextBox1->Text != L"");
 }
+
