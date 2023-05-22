@@ -18,7 +18,9 @@ void KPOS::MainForm::selectProcess(int index)
 	selected_process = index;
 	flowLayoutPanels[index]->BackColor = Color::Aquamarine;
 	button_DelProcess->Enabled = true;
-	panel1->Visible = true;
+
+	if (actions[selected_process] < 23)
+		panel1->Visible = true;
 }
 
 void KPOS::MainForm::unselectProcess()
@@ -169,6 +171,9 @@ System::Void KPOS::MainForm::button_addAction_Click(System::Object^ sender, Syst
 	actions[selected_process] += 1;
 
 	panel1_VisibleChanged(sender, e);
+
+	if (actions[selected_process] == 23)
+		panel1->Visible = false;
 }
 
 System::Void KPOS::MainForm::button_delPipe_Click(System::Object^ sender, System::EventArgs^ e)
@@ -193,5 +198,8 @@ System::Void KPOS::MainForm::button_delAction_Click(System::Object^ sender, Syst
 	actions[selected_process] += 1;
 
 	panel1_VisibleChanged(sender, e);
+
+	if (actions[selected_process] == 23)
+		panel1->Visible = false;
 }
 
