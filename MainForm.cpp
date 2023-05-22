@@ -107,6 +107,23 @@ System::Void KPOS::MainForm::button_DelProcess_Click(System::Object^ sender, Sys
 	{
 		//ÄÎËÆÍÎ ÏÅÐÅÄÂÈÃÀÒÜÑß ÑÎÄÅÐÆÈÌÎÅ
 		flowLayoutPanels[selected_process]->BackColor = flowLayoutPanels[selected_process + 1]->BackColor;
+
+		for (int i = selected_process; i < 7; i++)
+		{
+			for (int j = 0; j < actions[i]; j++)
+			{
+				panels[i * 23 + j]->Visible = false;
+			}
+
+			for (int j = 0; j < actions[i + 1]; j++)
+			{
+				panels[i * 23 + j]->BackColor = panels[i * 23 + 23 + j]->BackColor;
+				labels[i * 23 + j]->Text = labels[i * 23 + 23 + j]->Text;
+				panels[i * 23 + j]->Visible = panels[i * 23 + 23 + j]->Visible;
+			}
+
+			actions[i] = actions[i + 1];
+		}
 	}
 	
 	unselectProcess();
@@ -126,6 +143,7 @@ System::Void KPOS::MainForm::panel_Main_MouseClick(System::Object^ sender, Syste
 
 System::Void KPOS::MainForm::button_addPipe_Click(System::Object^ sender, System::EventArgs^ e)
 {
+	panel1_VisibleChanged(sender, e);
 	groupBox_add->Visible = true;
 	maskedTextBox1->Text = L"";
 	radioButton1->Select();
@@ -134,10 +152,46 @@ System::Void KPOS::MainForm::button_addPipe_Click(System::Object^ sender, System
 System::Void KPOS::MainForm::panel1_VisibleChanged(System::Object^ sender, System::EventArgs^ e)
 {
 	groupBox_add->Visible = false;
+	groupBox_del->Visible = false;
 }
 
 System::Void KPOS::MainForm::maskedTextBox1_TextChanged(System::Object^ sender, System::EventArgs^ e)
 {
 	button_addAction->Enabled = (maskedTextBox1->Text != L"");
+}
+
+System::Void KPOS::MainForm::button_addAction_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	int index = selected_process * 23 + actions[selected_process];
+	panels[index]->BackColor = Color::YellowGreen;
+	labels[index]->Text = maskedTextBox1->Text;
+	panels[index]->Visible = true;
+	actions[selected_process] += 1;
+
+	panel1_VisibleChanged(sender, e);
+}
+
+System::Void KPOS::MainForm::button_delPipe_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	panel1_VisibleChanged(sender, e);
+
+	groupBox_del->Visible = true;
+	maskedTextBox2->Text = L"";
+}
+
+System::Void KPOS::MainForm::maskedTextBox2_TextChanged(System::Object^ sender, System::EventArgs^ e)
+{
+	button_delAction->Enabled = (maskedTextBox2->Text != L"");
+}
+
+System::Void KPOS::MainForm::button_delAction_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	int index = selected_process * 23 + actions[selected_process];
+	panels[index]->BackColor = Color::SaddleBrown;
+	labels[index]->Text = maskedTextBox2->Text;
+	panels[index]->Visible = true;
+	actions[selected_process] += 1;
+
+	panel1_VisibleChanged(sender, e);
 }
 
