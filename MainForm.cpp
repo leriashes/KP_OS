@@ -155,6 +155,8 @@ System::Void KPOS::MainForm::panel1_VisibleChanged(System::Object^ sender, Syste
 {
 	groupBox_add->Visible = false;
 	groupBox_del->Visible = false;
+	groupBox_read->Visible = false;
+	groupBox_write->Visible = false;
 }
 
 System::Void KPOS::MainForm::maskedTextBox1_TextChanged(System::Object^ sender, System::EventArgs^ e)
@@ -194,6 +196,58 @@ System::Void KPOS::MainForm::button_delAction_Click(System::Object^ sender, Syst
 	int index = selected_process * 23 + actions[selected_process];
 	panels[index]->BackColor = Color::SaddleBrown;
 	labels[index]->Text = maskedTextBox2->Text;
+	panels[index]->Visible = true;
+	actions[selected_process] += 1;
+
+	panel1_VisibleChanged(sender, e);
+
+	if (actions[selected_process] == 23)
+		panel1->Visible = false;
+}
+
+System::Void KPOS::MainForm::button_read_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	panel1_VisibleChanged(sender, e);
+	groupBox_read->Visible = true;
+	maskedTextBox3->Text = L"";
+}
+
+System::Void KPOS::MainForm::maskedTextBox3_TextChanged(System::Object^ sender, System::EventArgs^ e)
+{
+	button_readAction->Enabled = (maskedTextBox3->Text != L"");
+}
+
+System::Void KPOS::MainForm::button_readAction_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	int index = selected_process * 23 + actions[selected_process];
+	panels[index]->BackColor = Color::LightBlue;
+	labels[index]->Text = maskedTextBox3->Text;
+	panels[index]->Visible = true;
+	actions[selected_process] += 1;
+
+	panel1_VisibleChanged(sender, e);
+
+	if (actions[selected_process] == 23)
+		panel1->Visible = false;
+}
+
+System::Void KPOS::MainForm::button_write_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	panel1_VisibleChanged(sender, e);
+	groupBox_write->Visible = true;
+	maskedTextBox4->Text = L"";
+}
+
+System::Void KPOS::MainForm::maskedTextBox4_TextChanged(System::Object^ sender, System::EventArgs^ e)
+{
+	button_writeAction->Enabled = (maskedTextBox4->Text != L"");
+}
+
+System::Void KPOS::MainForm::button_writeAction_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	int index = selected_process * 23 + actions[selected_process];
+	panels[index]->BackColor = Color::IndianRed;
+	labels[index]->Text = maskedTextBox4->Text;
 	panels[index]->Visible = true;
 	actions[selected_process] += 1;
 
