@@ -5,9 +5,17 @@ int OSystem::getProcessesNumber()
     return processes.size();
 }
 
-void OSystem::addProcess()
+void OSystem::addProcess(vector<Command*> program)
 {
    processes.push_back(new Process(processes.size() + 1));
+
+   int n = program.size();
+   int index = processes.size() - 1;
+
+   for (int i = 0; i < n; i++)
+   {
+       processes[index]->addCommand(program[i]);
+   }
 }
 
 void OSystem::delProcess(int PID)

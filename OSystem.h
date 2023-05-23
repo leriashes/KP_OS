@@ -6,6 +6,7 @@ using namespace std;
 
 class Process;
 class Pipe;
+class Command;
 
 class OSystem
 {
@@ -20,7 +21,7 @@ protected:
 public:
 	static OSystem* OS();
 	int getProcessesNumber();
-	void addProcess();
+	void addProcess(vector<Command*> program);
 	void delProcess(int PID);
 	void stop();
 

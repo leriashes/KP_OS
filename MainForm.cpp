@@ -1,5 +1,6 @@
 #include "MainForm.h"
 #include <Windows.h>
+#include "CreateCommand.h"
 using namespace KPOS;
 using namespace System;
 [STAThread]
@@ -293,9 +294,47 @@ System::Void KPOS::MainForm::button_writeAction_Click(System::Object^ sender, Sy
 
 System::Void KPOS::MainForm::button_start_Click(System::Object^ sender, System::EventArgs^ e)
 {
+	std::vector<Command*> program;
+
+
 	for (int i = 0; i < processes_number; i++)
 	{
-		OSystem::OS()->addProcess();
+		for (int j = 0; j < actions[i]; j++)
+		{
+			int specialCode = programms[i * 23 + j]->back();
+			programms[i * 23 + j]->pop_back();
+
+			int pipeName = programms[i * 23 + j]->back();
+			programms[i * 23 + j]->pop_back();
+
+			int commandCode = programms[i * 23 + j]->back();
+			programms[i * 23 + j]->pop_back();
+
+			Command* command = nullptr;
+			if (commandCode == 0)
+			{
+				command = new CreateCommand(pipeName, specialCode);
+			}
+			else if (commandCode == 1)
+			{
+				;
+			}
+			else if (commandCode == 2)
+			{
+				;
+			}
+			else if (commandCode == 3)
+			{
+				;
+			}
+
+			if (command != nullptr)
+				program.push_back(command);
+		}
+
+
+		OSystem::OS()->addProcess(program);
+		program.clear();
 	}
 
 	ModelForm^ p = gcnew ModelForm();
