@@ -1,15 +1,18 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include "Process.h"
 using namespace std;
 
 class Process;
+class Pipe;
 
 class OSystem
 {
 private:
 	static OSystem* instance;
 	vector<Process*> processes;
+	vector<Pipe*> pipes;
 
 protected:
 	OSystem() {}
@@ -17,8 +20,10 @@ protected:
 public:
 	static OSystem* OS();
 	int getProcessesNumber();
-	void addProcess(Process* proc);
+	void addProcess();
 	void delProcess(int index);
+
+	bool createPipe(int pipeName, int pipeType);
 	~OSystem();
 };
 

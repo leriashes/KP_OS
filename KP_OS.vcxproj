@@ -44,7 +44,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -118,12 +118,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Command.cpp" />
+    <ClCompile Include="CreateCommand.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="ModelForm.cpp" />
     <ClCompile Include="OSystem.cpp" />
+    <ClCompile Include="Pipe.cpp" />
     <ClCompile Include="Process.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Command.h" />
+    <ClInclude Include="CreateCommand.h" />
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -131,6 +136,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="OSystem.h" />
+    <ClInclude Include="Pipe.h" />
     <ClInclude Include="Process.h" />
   </ItemGroup>
   <ItemGroup>

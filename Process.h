@@ -1,10 +1,17 @@
 #pragma once
 #include <vector>
+#include "Command.h"
 using namespace std;
+
+class Command;
+
 class Process
 {
-	int number;
-	
-	vector<vector<int>> actions;
+private:
+	int ID;
+	vector<Command*> program;
+
+public:
+	void addCommand(Command* newCommand);
 };
 
