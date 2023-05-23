@@ -77,6 +77,8 @@ System::Void KPOS::MainForm::button_AddProcess_Click(System::Object^ sender, Sys
 	{
 		button_AddProcess->Enabled = false;
 	}
+
+	button_start->Enabled = true;
 }
 
 System::Void KPOS::MainForm::flowLayoutPanel1_Click(System::Object^ sender, System::EventArgs^ e) 
@@ -165,6 +167,10 @@ System::Void KPOS::MainForm::button_DelProcess_Click(System::Object^ sender, Sys
 
 			flowLayoutPanels[i]->Visible = state;
 		}
+
+		if (processes_number == 0)
+			button_start->Enabled = false;
+
 	}
 	
 	unselectProcess();

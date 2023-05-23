@@ -914,6 +914,14 @@ private: System::Windows::Forms::Label^ label190;
 			this->button_write = (gcnew System::Windows::Forms::Button());
 			this->button_read = (gcnew System::Windows::Forms::Button());
 			this->button_delPipe = (gcnew System::Windows::Forms::Button());
+			this->groupBox_write = (gcnew System::Windows::Forms::GroupBox());
+			this->maskedTextBox6 = (gcnew System::Windows::Forms::MaskedTextBox());
+			this->label191 = (gcnew System::Windows::Forms::Label());
+			this->maskedTextBox5 = (gcnew System::Windows::Forms::MaskedTextBox());
+			this->label190 = (gcnew System::Windows::Forms::Label());
+			this->maskedTextBox4 = (gcnew System::Windows::Forms::MaskedTextBox());
+			this->button_writeAction = (gcnew System::Windows::Forms::Button());
+			this->label189 = (gcnew System::Windows::Forms::Label());
 			this->groupBox_read = (gcnew System::Windows::Forms::GroupBox());
 			this->maskedTextBox7 = (gcnew System::Windows::Forms::MaskedTextBox());
 			this->label192 = (gcnew System::Windows::Forms::Label());
@@ -934,14 +942,6 @@ private: System::Windows::Forms::Label^ label190;
 			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->groupBox_write = (gcnew System::Windows::Forms::GroupBox());
-			this->maskedTextBox6 = (gcnew System::Windows::Forms::MaskedTextBox());
-			this->label191 = (gcnew System::Windows::Forms::Label());
-			this->maskedTextBox5 = (gcnew System::Windows::Forms::MaskedTextBox());
-			this->label190 = (gcnew System::Windows::Forms::Label());
-			this->maskedTextBox4 = (gcnew System::Windows::Forms::MaskedTextBox());
-			this->button_writeAction = (gcnew System::Windows::Forms::Button());
-			this->label189 = (gcnew System::Windows::Forms::Label());
 			this->flowLayoutPanel8 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->panel163 = (gcnew System::Windows::Forms::Panel());
 			this->label164 = (gcnew System::Windows::Forms::Label());
@@ -1322,10 +1322,10 @@ private: System::Windows::Forms::Label^ label190;
 			this->panel_Main->SuspendLayout();
 			this->panel1->SuspendLayout();
 			this->groupBox1->SuspendLayout();
+			this->groupBox_write->SuspendLayout();
 			this->groupBox_read->SuspendLayout();
 			this->groupBox_del->SuspendLayout();
 			this->groupBox_add->SuspendLayout();
-			this->groupBox_write->SuspendLayout();
 			this->flowLayoutPanel8->SuspendLayout();
 			this->panel163->SuspendLayout();
 			this->panel164->SuspendLayout();
@@ -1627,6 +1627,88 @@ private: System::Windows::Forms::Label^ label190;
 			this->button_delPipe->UseVisualStyleBackColor = true;
 			this->button_delPipe->Click += gcnew System::EventHandler(this, &MainForm::button_delPipe_Click);
 			// 
+			// groupBox_write
+			// 
+			this->groupBox_write->Controls->Add(this->maskedTextBox6);
+			this->groupBox_write->Controls->Add(this->label191);
+			this->groupBox_write->Controls->Add(this->maskedTextBox5);
+			this->groupBox_write->Controls->Add(this->label190);
+			this->groupBox_write->Controls->Add(this->maskedTextBox4);
+			this->groupBox_write->Controls->Add(this->button_writeAction);
+			this->groupBox_write->Controls->Add(this->label189);
+			this->groupBox_write->Location = System::Drawing::Point(390, 3);
+			this->groupBox_write->Name = L"groupBox_write";
+			this->groupBox_write->Size = System::Drawing::Size(587, 152);
+			this->groupBox_write->TabIndex = 9;
+			this->groupBox_write->TabStop = false;
+			this->groupBox_write->Text = L" Запись в канал";
+			this->groupBox_write->Visible = false;
+			// 
+			// maskedTextBox6
+			// 
+			this->maskedTextBox6->Location = System::Drawing::Point(367, 73);
+			this->maskedTextBox6->Mask = L"000";
+			this->maskedTextBox6->Name = L"maskedTextBox6";
+			this->maskedTextBox6->Size = System::Drawing::Size(35, 20);
+			this->maskedTextBox6->TabIndex = 10;
+			this->maskedTextBox6->TextChanged += gcnew System::EventHandler(this, &MainForm::maskedTextBox6_TextChanged);
+			// 
+			// label191
+			// 
+			this->label191->AutoSize = true;
+			this->label191->Location = System::Drawing::Point(226, 76);
+			this->label191->Name = L"label191";
+			this->label191->Size = System::Drawing::Size(119, 13);
+			this->label191->TabIndex = 9;
+			this->label191->Text = L"Количество символов";
+			// 
+			// maskedTextBox5
+			// 
+			this->maskedTextBox5->Location = System::Drawing::Point(367, 26);
+			this->maskedTextBox5->Mask = L"00";
+			this->maskedTextBox5->Name = L"maskedTextBox5";
+			this->maskedTextBox5->Size = System::Drawing::Size(35, 20);
+			this->maskedTextBox5->TabIndex = 8;
+			this->maskedTextBox5->TextChanged += gcnew System::EventHandler(this, &MainForm::maskedTextBox5_TextChanged);
+			// 
+			// label190
+			// 
+			this->label190->AutoSize = true;
+			this->label190->Location = System::Drawing::Point(226, 29);
+			this->label190->Name = L"label190";
+			this->label190->Size = System::Drawing::Size(80, 13);
+			this->label190->TabIndex = 7;
+			this->label190->Text = L"Длительность";
+			// 
+			// maskedTextBox4
+			// 
+			this->maskedTextBox4->Location = System::Drawing::Point(80, 26);
+			this->maskedTextBox4->Mask = L"000";
+			this->maskedTextBox4->Name = L"maskedTextBox4";
+			this->maskedTextBox4->Size = System::Drawing::Size(101, 20);
+			this->maskedTextBox4->TabIndex = 6;
+			this->maskedTextBox4->TextChanged += gcnew System::EventHandler(this, &MainForm::maskedTextBox4_TextChanged);
+			// 
+			// button_writeAction
+			// 
+			this->button_writeAction->Enabled = false;
+			this->button_writeAction->Location = System::Drawing::Point(446, 118);
+			this->button_writeAction->Name = L"button_writeAction";
+			this->button_writeAction->Size = System::Drawing::Size(135, 23);
+			this->button_writeAction->TabIndex = 4;
+			this->button_writeAction->Text = L"Добавить";
+			this->button_writeAction->UseVisualStyleBackColor = true;
+			this->button_writeAction->Click += gcnew System::EventHandler(this, &MainForm::button_writeAction_Click);
+			// 
+			// label189
+			// 
+			this->label189->AutoSize = true;
+			this->label189->Location = System::Drawing::Point(6, 29);
+			this->label189->Name = L"label189";
+			this->label189->Size = System::Drawing::Size(68, 13);
+			this->label189->TabIndex = 0;
+			this->label189->Text = L"Имя канала";
+			// 
 			// groupBox_read
 			// 
 			this->groupBox_read->Controls->Add(this->maskedTextBox7);
@@ -1838,88 +1920,6 @@ private: System::Windows::Forms::Label^ label190;
 			this->label1->Size = System::Drawing::Size(68, 13);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Имя канала";
-			// 
-			// groupBox_write
-			// 
-			this->groupBox_write->Controls->Add(this->maskedTextBox6);
-			this->groupBox_write->Controls->Add(this->label191);
-			this->groupBox_write->Controls->Add(this->maskedTextBox5);
-			this->groupBox_write->Controls->Add(this->label190);
-			this->groupBox_write->Controls->Add(this->maskedTextBox4);
-			this->groupBox_write->Controls->Add(this->button_writeAction);
-			this->groupBox_write->Controls->Add(this->label189);
-			this->groupBox_write->Location = System::Drawing::Point(390, 3);
-			this->groupBox_write->Name = L"groupBox_write";
-			this->groupBox_write->Size = System::Drawing::Size(587, 152);
-			this->groupBox_write->TabIndex = 9;
-			this->groupBox_write->TabStop = false;
-			this->groupBox_write->Text = L" Запись в канал";
-			this->groupBox_write->Visible = false;
-			// 
-			// maskedTextBox6
-			// 
-			this->maskedTextBox6->Location = System::Drawing::Point(367, 73);
-			this->maskedTextBox6->Mask = L"000";
-			this->maskedTextBox6->Name = L"maskedTextBox6";
-			this->maskedTextBox6->Size = System::Drawing::Size(35, 20);
-			this->maskedTextBox6->TabIndex = 10;
-			this->maskedTextBox6->TextChanged += gcnew System::EventHandler(this, &MainForm::maskedTextBox6_TextChanged);
-			// 
-			// label191
-			// 
-			this->label191->AutoSize = true;
-			this->label191->Location = System::Drawing::Point(226, 76);
-			this->label191->Name = L"label191";
-			this->label191->Size = System::Drawing::Size(119, 13);
-			this->label191->TabIndex = 9;
-			this->label191->Text = L"Количество символов";
-			// 
-			// maskedTextBox5
-			// 
-			this->maskedTextBox5->Location = System::Drawing::Point(367, 26);
-			this->maskedTextBox5->Mask = L"00";
-			this->maskedTextBox5->Name = L"maskedTextBox5";
-			this->maskedTextBox5->Size = System::Drawing::Size(35, 20);
-			this->maskedTextBox5->TabIndex = 8;
-			this->maskedTextBox5->TextChanged += gcnew System::EventHandler(this, &MainForm::maskedTextBox5_TextChanged);
-			// 
-			// label190
-			// 
-			this->label190->AutoSize = true;
-			this->label190->Location = System::Drawing::Point(226, 29);
-			this->label190->Name = L"label190";
-			this->label190->Size = System::Drawing::Size(80, 13);
-			this->label190->TabIndex = 7;
-			this->label190->Text = L"Длительность";
-			// 
-			// maskedTextBox4
-			// 
-			this->maskedTextBox4->Location = System::Drawing::Point(80, 26);
-			this->maskedTextBox4->Mask = L"000";
-			this->maskedTextBox4->Name = L"maskedTextBox4";
-			this->maskedTextBox4->Size = System::Drawing::Size(101, 20);
-			this->maskedTextBox4->TabIndex = 6;
-			this->maskedTextBox4->TextChanged += gcnew System::EventHandler(this, &MainForm::maskedTextBox4_TextChanged);
-			// 
-			// button_writeAction
-			// 
-			this->button_writeAction->Enabled = false;
-			this->button_writeAction->Location = System::Drawing::Point(446, 118);
-			this->button_writeAction->Name = L"button_writeAction";
-			this->button_writeAction->Size = System::Drawing::Size(135, 23);
-			this->button_writeAction->TabIndex = 4;
-			this->button_writeAction->Text = L"Добавить";
-			this->button_writeAction->UseVisualStyleBackColor = true;
-			this->button_writeAction->Click += gcnew System::EventHandler(this, &MainForm::button_writeAction_Click);
-			// 
-			// label189
-			// 
-			this->label189->AutoSize = true;
-			this->label189->Location = System::Drawing::Point(6, 29);
-			this->label189->Name = L"label189";
-			this->label189->Size = System::Drawing::Size(68, 13);
-			this->label189->TabIndex = 0;
-			this->label189->Text = L"Имя канала";
 			// 
 			// flowLayoutPanel8
 			// 
@@ -5502,6 +5502,7 @@ private: System::Windows::Forms::Label^ label190;
 			// 
 			// button_start
 			// 
+			this->button_start->Enabled = false;
 			this->button_start->Location = System::Drawing::Point(880, 542);
 			this->button_start->Name = L"button_start";
 			this->button_start->Size = System::Drawing::Size(118, 46);
@@ -5529,14 +5530,14 @@ private: System::Windows::Forms::Label^ label190;
 			this->panel_Main->ResumeLayout(false);
 			this->panel1->ResumeLayout(false);
 			this->groupBox1->ResumeLayout(false);
+			this->groupBox_write->ResumeLayout(false);
+			this->groupBox_write->PerformLayout();
 			this->groupBox_read->ResumeLayout(false);
 			this->groupBox_read->PerformLayout();
 			this->groupBox_del->ResumeLayout(false);
 			this->groupBox_del->PerformLayout();
 			this->groupBox_add->ResumeLayout(false);
 			this->groupBox_add->PerformLayout();
-			this->groupBox_write->ResumeLayout(false);
-			this->groupBox_write->PerformLayout();
 			this->flowLayoutPanel8->ResumeLayout(false);
 			this->panel163->ResumeLayout(false);
 			this->panel163->PerformLayout();
