@@ -7,25 +7,34 @@ int OSystem::getProcessesNumber()
 
 void OSystem::addProcess()
 {
-    //processes.push_back(proc);
-   processes.push_back(new Process());
+   processes.push_back(new Process(processes.size() + 1));
 }
 
-void OSystem::delProcess(int index)
+void OSystem::delProcess(int PID)
 {
-    if (index >= 0 && index < processes.size())
+    if (PID > 0 && PID <= processes.size())
     {
-        delete processes[index];
+        delete processes[PID - 1];
 
-        for (int i = index; i < processes.size() - 1; i++)
+        /*for (int i = PID; i < processes.size() - 1; i++)
         {
             processes[i] = processes[i + 1];
         }
 
-        processes.pop_back();
+        processes.pop_back();*/
     }
 
     return;
+}
+
+void OSystem::stop()
+{
+    for (int i = 0; i < processes.size(); i++)
+    {
+        OSystem::OS()->delProcess(i + 1);
+    }
+
+    processes.clear();
 }
 
 bool OSystem::createPipe(int pipeName, int pipeType)

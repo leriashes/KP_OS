@@ -21,9 +21,9 @@ public:
 	static OSystem* OS();
 	int getProcessesNumber();
 	void addProcess();
-	void delProcess(int index);
+	void delProcess(int PID);
+	void stop();
 
 	bool createPipe(int pipeName, int pipeType);
-	~OSystem();
 };
 

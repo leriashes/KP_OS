@@ -12,6 +12,7 @@ private:
 	vector<Command*> program;
 
 public:
+	Process(int PID);
 	void addCommand(Command* newCommand);
 };
 

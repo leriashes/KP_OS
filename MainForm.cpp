@@ -50,7 +50,7 @@ void KPOS::MainForm::addAction(System::Object^ sender, System::EventArgs^ e, Sys
 {
 	int index = selected_process * 23 + actions[selected_process];
 	panels[index]->BackColor = color;
-	labels[index]->Text = text;
+	labels[index]->Text = System::Int32::Parse(text).ToString();
 	panels[index]->Visible = true;
 	actions[selected_process] += 1;
 
@@ -293,8 +293,15 @@ System::Void KPOS::MainForm::button_writeAction_Click(System::Object^ sender, Sy
 
 System::Void KPOS::MainForm::button_start_Click(System::Object^ sender, System::EventArgs^ e)
 {
+	for (int i = 0; i < processes_number; i++)
+	{
+		OSystem::OS()->addProcess();
+	}
+
 	ModelForm^ p = gcnew ModelForm();
 	p->ShowDialog();
+
+	OSystem::OS()->stop();
 }
 
 System::Void KPOS::MainForm::maskedTextBox8_TextChanged(System::Object^ sender, System::EventArgs^ e)
