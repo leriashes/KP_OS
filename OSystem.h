@@ -25,6 +25,7 @@ public:
 	void delProcess(int PID);
 	void stop();
 
-	bool createPipe(int pipeName, int pipeType);
+	int createPipe(int PID, int pipeName, int pipeType);
+	int deletePipe(int PID, int pipeName);
 };
 

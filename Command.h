@@ -5,10 +5,13 @@ class Command
 {
 protected:
 	int pipeName;
-	int processID;
+	int PID;
 
 public:
 	Command(int pipe_name);
-	virtual bool Run() = 0;
+	virtual int Run() = 0;
+
+	void setProcess(int PID);
+	int getProcess();
 };
 

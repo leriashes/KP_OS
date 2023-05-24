@@ -8,6 +8,6 @@ private:
 
 public:
     CreateCommand(int pipeName, int pipeType) :Command(pipeName) { this->pipeType = pipeType; };
-    bool Run();
+    int Run();
 };
 

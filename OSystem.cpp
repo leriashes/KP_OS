@@ -45,22 +45,55 @@ void OSystem::stop()
     processes.clear();
 }
 
-bool OSystem::createPipe(int pipeName, int pipeType)
+int OSystem::createPipe(int PID, int pipeName, int pipeType)
 {
     int n = pipes.size();
-    bool result = true;
+    int result = 0;
 
     for (int i = 0; i < n && result; i++)
     {
         if (pipes[i]->getName() == pipeName)
         {
-            result = false;
+            result = 1;
         }
     }
 
-    if (result)
+    if (result == 0)
     {
-        pipes.push_back(new Pipe(pipeName, pipeType));
+        pipes.push_back(new Pipe(pipeName, pipeType, PID));
+    }
+
+    return result;
+}
+
+int OSystem::deletePipe(int PID, int pipeName)
+{
+    int result = 2;
+    int n = pipes.size();
+    int k = -1;
+
+    for (int i = 0; i < n && result == 2; i++)
+    {
+        if (pipes[i]->getName() == pipeName)
+        {
+            k = i;
+            result = 1;
+        }
+    }
+    
+    if (k != -1 && pipes[k]->getServerPID() == PID)
+        result = 0;
+
+    if (result == 0)
+    {
+        delete pipes[k];
+
+        for (int i = k; i < n - 1; i++)
+        {
+            pipes[i] = pipes[i + 1];
+        }
+
+        pipes.pop_back();
     }
 
     return result;

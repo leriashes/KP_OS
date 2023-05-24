@@ -1,6 +1,6 @@
 #include "CreateCommand.h"
 
-bool CreateCommand::Run()
+int CreateCommand::Run()
 {
-	return OSystem::OS()->createPipe(pipeName, pipeType);
+	return OSystem::OS()->createPipe(PID, pipeName, pipeType);
 }

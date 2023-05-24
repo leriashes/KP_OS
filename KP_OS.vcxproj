@@ -120,6 +120,7 @@
   <ItemGroup>
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="CreateCommand.cpp" />
+    <ClCompile Include="DeleteCommand.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="ModelForm.cpp" />
     <ClCompile Include="OSystem.cpp" />
@@ -129,6 +130,7 @@
   <ItemGroup>
     <ClInclude Include="Command.h" />
     <ClInclude Include="CreateCommand.h" />
+    <ClInclude Include="DeleteCommand.h" />
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

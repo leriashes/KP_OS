@@ -13,4 +13,12 @@ System::Void KPOS::ModelForm::ModelForm_Load(System::Object^ sender, System::Eve
 	}
 
 	textBox9->Text += L"\r\n";
+
+	while (true) 
+	{
+		for (int i = 0; i < n; i++)
+		{
+
+		}
+	}
 }
